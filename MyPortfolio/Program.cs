@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.Models;
+using MyPortfolio.Services.ContactService;
 using MyPortfolio.Services.IdentityService;
 using MyPortfolio.Services.ProjectService;
 
@@ -32,6 +33,7 @@ builder.Services.AddDbContext<AppDbContext>
 
 builder.Services.AddScoped<IProjectRepo, ProjectRepo>();
 builder.Services.AddScoped<IIdentityRepo, IdentityRepo>();
+builder.Services.AddScoped<IContactRepo, ContactRepo>();
 
 var app = builder.Build();
 

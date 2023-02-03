@@ -3,14 +3,14 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "/Views/Shared/_DashLayout.cshtml";
 }
 
-<div style="padding:120px;">
-    <h1>Index</h1>
-
-    <p>
-        <a asp-action="Create" class="btn btn-primary">Create New</a>
-    </p>
+<div>
+    <div class="d-flex justify-content-between mb-4">
+        <h4>Projects</h4>
+        <a asp-action="Create" class="btn btn-primary">New Project</a>
+    </div>
     <table class="table">
         <thead>
             <tr>
