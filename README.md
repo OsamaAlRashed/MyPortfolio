@@ -1,3 +1,3 @@
 # MyPortfolio
 
-It's a my website designed by minimal architecture.
+It's a my website designed with minimal architecture.
