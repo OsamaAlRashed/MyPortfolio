@@ -19,5 +19,6 @@ namespace MyPortfolio.Dtos
 
         [Display(Name = "Image")]
         public IFormFile? ImageFile { get; set; }
+        public string Tags { get; set; }
     }
 }

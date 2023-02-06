@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.Models;
 using MyPortfolio.Services.ContactService;
+using MyPortfolio.Services.EmailService;
 using MyPortfolio.Services.IdentityService;
 using MyPortfolio.Services.ProjectService;
 
@@ -16,7 +17,7 @@ builder.Services.AddIdentity<IdentityUser<Guid>, IdentityRole<Guid>>(options =>
 {
     options.User.RequireUniqueEmail = false;
     options.Password.RequiredLength = 4;
-    options.Password.RequiredUniqueChars = 0;
+    options.Password.RequiredUniqueChars = 0; 
     options.Password.RequireDigit = false;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireUppercase = false;
@@ -34,6 +35,7 @@ builder.Services.AddDbContext<AppDbContext>
 builder.Services.AddScoped<IProjectRepo, ProjectRepo>();
 builder.Services.AddScoped<IIdentityRepo, IdentityRepo>();
 builder.Services.AddScoped<IContactRepo, ContactRepo>();
+builder.Services.AddScoped<EmailService>();
 
 var app = builder.Build();
 

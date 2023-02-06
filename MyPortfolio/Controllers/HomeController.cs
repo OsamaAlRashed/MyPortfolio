@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyPortfolio.Constants;
 using MyPortfolio.Dtos;
 using MyPortfolio.Models;
 using MyPortfolio.Services.IdentityService;
@@ -25,16 +26,12 @@ namespace MyPortfolio.Controllers
             {
                 Owner = new OwnerDto
                 {
-                    Avatar = "osama.jpg",
-                    FullName = "Osama Al-Rashed",
-                    Profile = "Software Engineer   .Net Back End Developer",
-                    CvLink = "https://docs.google.com/document/d/1tEQWbL_vU41z3JFiGyCzbrAxGgjBxcWDAko1vsGsiJs",
-                    Address = new AddressDto
-                    {
-                        City = "Dubai",
-                        Number = 1,
-                        Street = "AlBarsha"
-                    }
+                    Avatar = SiteConstants.Avatar,
+                    FullName = SiteConstants.FullName,
+                    Profile = SiteConstants.Profile,
+                    CvLink = SiteConstants.CvLink,
+                    Address = SiteConstants.Address,
+                    Bio = SiteConstants.Bio
                 },
                 Projects = await repo.GetAll()
             };

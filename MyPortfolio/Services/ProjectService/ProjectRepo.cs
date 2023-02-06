@@ -33,6 +33,7 @@ namespace MyPortfolio.Services.ProjectService
                     ImagePath = path,
                     Link = dto.Link,
                     Title = dto.Title,
+                    Tags = dto.Tags
                 };
 
                 context.Projects.Add(model);
@@ -79,7 +80,8 @@ namespace MyPortfolio.Services.ProjectService
                     Description = x.Description,
                     ImagePath = x.ImagePath,
                     Link = x.Link,
-                    Title = x.Title
+                    Title = x.Title,
+                    Tags = x.Tags
                 }).ToListAsync();
 
                 return projects;
@@ -102,7 +104,8 @@ namespace MyPortfolio.Services.ProjectService
                         Description = x.Description,
                         ImagePath = x.ImagePath,
                         Link = x.Link,
-                        Title = x.Title
+                        Title = x.Title,
+                        Tags = x.Tags
                     }).SingleOrDefaultAsync();
 
                 return project;
@@ -131,6 +134,8 @@ namespace MyPortfolio.Services.ProjectService
                 project.Title = dto.Title;
                 project.Description = dto.Description;
                 project.Link = dto.Link;
+                project.Tags = dto.Tags;
+               
 
                 await context.SaveChangesAsync();
 

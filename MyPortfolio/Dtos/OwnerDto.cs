@@ -13,13 +13,7 @@ namespace MyPortfolio.Dtos
         public string GitHub { get; set; }
         public string LeetCode { get; set; }
         public string CodeForces { get; set; }
-        public AddressDto Address { get; set; }
-    }
-
-    public class AddressDto
-    {
-        public string Street { get; set; }
-        public string City { get; set; }
-        public int Number { get; set; }
+        public string Address { get; set; }
+        public string Bio { get; set; }
     }
 }

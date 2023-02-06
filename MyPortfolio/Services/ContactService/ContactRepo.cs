@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MyPortfolio.Constants;
 using MyPortfolio.Dtos;
 using MyPortfolio.Models;
 
@@ -8,10 +9,12 @@ namespace MyPortfolio.Services.ContactService
     {
 
         private readonly AppDbContext context;
+        private readonly EmailService.EmailService _emailService;
 
-        public ContactRepo(AppDbContext context)
+        public ContactRepo(AppDbContext context, EmailService.EmailService emailService)
         {
             this.context = context;
+            _emailService = emailService;
         }
 
         public async Task<Guid?> Add(ContactDto dto)
@@ -28,6 +31,13 @@ namespace MyPortfolio.Services.ContactService
 
                 context.ContactUs.Add(model);
                 await context.SaveChangesAsync();
+
+                await _emailService.SendEmail(new EmailService.Message
+                {
+                    Subject = $"{model.Name} has reached out",
+                    Body = model.Message,
+                    To = SiteConstants.Email
+                });
 
                 return model.Id;
             }
